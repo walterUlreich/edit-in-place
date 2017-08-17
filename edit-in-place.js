@@ -1,30 +1,34 @@
 $(document).ready(function() {
-  $('.input').hide()
-  $('.area').hide()
+  $('#nameP').on('click', function(){
+      $('#nameP').addClass('hidden')
+      $('#nameInput').removeClass('hidden')
+      $('#nameInput').trigger('focus')
+      $('#nameInput').val($('#nameP').text())
 
-  $('#name').on('click', function() {
-    $('#name').hide()
-    $('.input').show()
   })
 
-  $('.input').on('blur', function() {
-    $('.input').hide()
-    $('#name').show()
-    $('#name').text($('.input').val())
+  $('#nameInput').on('blur', function(){
+      $('#nameP').text($('#nameInput').val())
+      $('#nameP').removeClass('hidden')
+      $('#nameInput').addClass('hidden')
+
+
   })
 
-  $('#about').on('click', function() {
-    $('#about').hide()
-    $('.area').show()
+  $('#aboutP').on('click', function(){
+      $('#bioTextArea').val($('#aboutP').text())
+      $('#aboutP').addClass('hidden')
+      $('#aboutTextArea').removeClass('hidden')
+      $('#aboutTextArea').trigger('focus')
+
   })
 
-  $('.area').on('blur', function() {
-    $('.area').hide()
-    $('#about').show()
-    $('#about').text($('.area').val())
+  $('#aboutTextArea').on('blur', function(){
+      $('#aboutP').text($('#aboutTextArea').val())
+      $('#aboutP').removeClass('hidden')
+      $('#aboutTextArea').addClass('hidden')
+
+
   })
-
-
-
 
 })
